@@ -1,0 +1,10 @@
+<% if @current_user == @user %>
+  <%= @current_user.name %>
+  <%= @current_user.email %>
+  <% else %>
+    <%= @user.name %>
+<% end %>
+
+<% @user.listings.each do |l| %>
+  <p><%= l.name %></p>
+<% end %>
