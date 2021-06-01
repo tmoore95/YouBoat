@@ -10,7 +10,7 @@
    <div class="cards">
       <% @bookings.each do |b| %>
       <a href='/bookings/<%=b.id%>'>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= b.listing.photo%>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
          <%= b.listing.name %>
          <div class='card-tag-bottom'><%= b.start_date%></div>
          <div class='booking-host'>Host: <%= b.listing.user.email%></div>
@@ -27,7 +27,7 @@
    <div class="cards">
       <% @user.listings.each do |l| %>
       <a href='/listings/<%=l.id%>'>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= l.photo%>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
          <%= l.name %>
          <div class='card-tag-bottom'>£<%= l.price_per_day%></div>
       </div>
