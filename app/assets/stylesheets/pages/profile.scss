@@ -69,13 +69,15 @@
 
 .account-details {
   padding: 2rem;
+  width: 75%;
 }
 
 .profile-header {
   color: #212121;
   margin-bottom: 2.5rem;
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid #34a5dd;
   padding-bottom: 0.7rem;
+  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .card-tag-bottom {
@@ -103,7 +105,7 @@
   bottom: 10px;
   right: 10px;
   font-size: 0.9rem;
-  background-color: rgba(39, 187, 20, 0.329);
+  background-color: rgba(183, 228, 23, 0.329);
   padding: 5px;
   border-radius: 8px;
   text-transform: uppercase;
