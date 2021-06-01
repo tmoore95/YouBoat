@@ -1,1 +1,44 @@
 // Specific CSS for your home-page
+
+.navbar{
+  font-size: 20px;
+}
+
+.user{
+  color: black !important;
+  margin: 0 16px;
+}
+
+.navbar-text{
+  font-size: 30px !important;
+  color: black !important;
+}
+
+.navbar-brand{
+  padding: 5px 10px;
+}
+
+.test{
+  color: green;
+}
+
+.footer-links{
+ font-size: 20px;
+}
+
+.footer-box{
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.fab{
+  color: rgb(100, 100, 100);
+  &:hover{
+    color: rgb(50, 50, 50);
+  }
+}
+
+.footer{
+ padding: 20px 0;
+}

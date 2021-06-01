@@ -1,10 +1,38 @@
 <% if @current_user == @user %>
-  <%= @current_user.name %>
-  <%= @current_user.email %>
-  <% else %>
-    <%= @user.name %>
+<div class='account-details'>
+   <h1 class='profile-header'>Account Details</h1>
+   <p><strong>Name</strong>: <%= @current_user.name %></p>
+   <p><strong>Email</strong>: <%= @current_user.email %></p>
+   <p><strong>Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
+</div>
+<div id='bookings-section' class='bookings'>
+   <h1 class='profile-header'>My bookings</h1>
+   <div class="cards">
+      <% @bookings.each do |b| %>
+      <a href='/bookings/<%=b.id%>'>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= b.listing.photo%>)">
+         <%= b.listing.name %>
+         <div class='card-tag-bottom'><%= b.start_date%></div>
+         <div class='booking-host'>Host: <%= b.listing.user.email%></div>
+      </div>
+      </a>
+      <% end %>
+   </div>
+</div>
+<% else %>
+<%= @user.name %>
 <% end %>
+<div class='listings'>
+   <h1 class='profile-header'><%=@user == @current_user ? 'My listings' : 'User Listings'%></h1>
+   <div class="cards">
+      <% @user.listings.each do |l| %>
+      <a href='/listings/<%=l.id%>'>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= l.photo%>)">
+         <%= l.name %>
+         <div class='card-tag-bottom'>£<%= l.price_per_day%></div>
+      </div>
+      </a>
+      <% end %>
+   </div>
+</div>
 
-<% @user.listings.each do |l| %>
-  <p><%= l.name %></p>
-<% end %>

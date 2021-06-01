@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_many :bookings
-  has_many :bookings, through: :listings
 end
