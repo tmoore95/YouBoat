@@ -59,12 +59,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
 gem 'faker'
 gem 'open-uri'
-=======
 
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'cloudinary', '~> 1.16.0'
->>>>>>> 6f37c08a5b7f3d877889b5cafcecea1d6bcfaf15

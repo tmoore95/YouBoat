@@ -9,26 +9,29 @@
 require "faker"
 require "open-uri"
 
-puts "removing old listings and users."
+puts "destroy old seed"
 User.destroy_all
 Listing.destroy_all
-puts "old seeds removed."
+puts "destroyed"
 
-5.times do
-  user = User.new(
-    name: Faker::Internet.user_name,
-    email: Faker::Internet.email
+user = User.create!(
+name: "testing",
+email: "test@test.com",
+password: "secret"
+)
+
+puts "created user"
+
+6.times do
+  list = Listing.new(
+    name: "The #{Faker::Name.middle_name}",
+    location: Faker::Address.city,
+    craft_type: Faker::Vehicle.make,
+    price_per_day: (0..1000).to_a.sample,
+    user: user
   )
-  user.save
-
-  10.times do
-    list = Listing.new(
-      name: "The #{Faker::Name.middle_name}",
-      location: Faker::Address.city,
-      craft_type: Faker::Vehicle.make,
-      price_per_day: (0..1000).to_a.sample
-    )
-    list.save
-  end
+  file = URI.open('https://res.cloudinary.com/dqxvijnu9/image/upload/v1622558282/boat1.jpg')
+  list.photo.attach(io: file, filename: 'boat1.jpg', content_type: 'jpg')
+  list.save!
 end
-puts "listings and users added."
+puts "created listings"
