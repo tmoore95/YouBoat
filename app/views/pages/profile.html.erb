@@ -3,7 +3,8 @@
    <h1 class='profile-header'>Account Details</h1>
    <p><strong>Name</strong>: <%= @current_user.name %></p>
    <p><strong>Email</strong>: <%= @current_user.email %></p>
-   <p><strong>Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
+   <p><strong>My Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
+  <p><strong>My Listings</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
 </div>
 <div id='bookings-section' class='bookings'>
    <h1 class='profile-header'>My bookings</h1>
@@ -14,6 +15,7 @@
          <%= b.listing.name %>
          <div class='card-tag-bottom'><%= b.start_date%></div>
          <div class='booking-host'>Host: <%= b.listing.user.email%></div>
+         <div class='booking-status'><%= b.status%></div>
       </div>
       </a>
       <% end %>
@@ -22,7 +24,7 @@
 <% else %>
 <%= @user.name %>
 <% end %>
-<div class='listings'>
+<div id='listings-section' class='listings'>
    <h1 class='profile-header'><%=@user == @current_user ? 'My listings' : 'User Listings'%></h1>
    <div class="cards">
       <% @user.listings.each do |l| %>
