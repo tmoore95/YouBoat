@@ -4,5 +4,5 @@ class Listing < ApplicationRecord
   too_short: "name must be at least 5 characters long" }
   validates :location, presence: true
   validates :craft_type, presence: true
-  validates :price_per_day, presence: true, numericality: { only_integer: true }
+  validates :price_per_day, presence: true, numericality: { only_float: true }
 end
