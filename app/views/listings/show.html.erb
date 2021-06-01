@@ -1,4 +1,8 @@
-<%= @listing.name %>
-<%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container">
+  <%= @listing.name %>
+  <p>Price per day: £<%= @listing.price_per_day %></p>
+  <p>Seven day discount: £<%= @listing.price_per_day * 7 * 0.9 %></p>
+  <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
 
-<%= link_to "Book now", new_listing_booking_path(@listing) %>
+  <%= link_to "Book now", new_listing_booking_path(@listing), class: "book" %>
+</div>
