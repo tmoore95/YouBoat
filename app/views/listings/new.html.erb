@@ -1,4 +1,4 @@
-<%= simple_form_for(@listing) do |f| %>
+<%= simple_form_for @listing, html: { class: "col-md-6 offset-md-3" } do |f| %>
 <%= f.input :name %>
 <%= f.input :craft_type %>
 <%= f.input :price_per_day %>
