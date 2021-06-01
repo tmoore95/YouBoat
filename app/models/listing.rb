@@ -5,4 +5,5 @@ class Listing < ApplicationRecord
   validates :location, presence: true
   validates :craft_type, presence: true
   validates :price_per_day, presence: true, numericality: { only_float: true }
+  has_one_attached :photo
 end

@@ -1,0 +1,99 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card-category:hover {
+  bottom: 5px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.bookings {
+  padding: 2rem;
+}
+
+.listings {
+  padding: 2rem;
+}
+
+.account-details {
+  padding: 2rem;
+}
+
+.profile-header {
+  color: #212121;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #212121;
+  padding-bottom: 0.7rem;
+}
+
+.card-tag-bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.booking-host {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 8px;
+}
