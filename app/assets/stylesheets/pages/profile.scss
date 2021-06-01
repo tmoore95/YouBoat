@@ -10,8 +10,12 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card-category:hover {
+  bottom: 5px;
 }
 
 .cards {
@@ -56,19 +60,22 @@
 }
 
 .bookings {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .listings {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .account-details {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .profile-header {
+  color: #212121;
   margin-bottom: 2.5rem;
+  border-bottom: 2px solid #212121;
+  padding-bottom: 0.7rem;
 }
 
 .card-tag-bottom {
