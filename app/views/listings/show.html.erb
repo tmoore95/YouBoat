@@ -1,8 +1,20 @@
-<div class="container">
-  <%= @listing.name %>
-  <p>Price per day: £<%= @listing.price_per_day %></p>
-  <p>Seven day discount: £<%= @listing.price_per_day * 7 * 0.9 %></p>
-  <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
+<style>
+  .show-image {
+    border-radius: 5px;
+  }
+</style>
 
-  <%= link_to "Book now", new_listing_booking_path(@listing), class: "book" %>
+
+<div class="container pt-3">
+  <div class="show">
+    <%= cl_image_tag @listing.photo.key, height: 230, width: 400, class: "show-image" %>
+    <div class="text m-2">
+      <h3><strong><%= @listing.name %></strong></h3>
+      <h2><%= @listing.craft_type %></h2>
+      <p>Price per day: £<%= @listing.price_per_day %></p>
+      <% price = @listing.price_per_day * 7 * 0.9 %>
+      <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
+    </div>
+    <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary m-2" %>
+  </div>
 </div>
