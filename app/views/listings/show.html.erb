@@ -1,9 +1,9 @@
+
 <style>
   .show-image {
     border-radius: 5px;
   }
 </style>
-
 
 <div class="container pt-3">
   <div class="show">
@@ -18,3 +18,12 @@
     <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary m-2" %>
   </div>
 </div>
+
+<div class="container">
+  <div id="map"
+     style="width: 50%; height: 300px;"
+     data-markers="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
