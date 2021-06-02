@@ -16,6 +16,7 @@
     <div class="text m-2 p-2">
       <h3><strong><%= @listing.name %></strong></h3>
       <h4>Craft type: <%= @listing.craft_type %></h4>
+      <p>Location:<%= @listing.location %></p>
       <p>Price per day: £<%= @listing.price_per_day %></p>
       <% price = @listing.price_per_day * 7 * 0.9 %>
       <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
