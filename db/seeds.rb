@@ -10,8 +10,9 @@ require "faker"
 require "open-uri"
 
 puts "destroy old seed"
-User.destroy_all
+Booking.destroy_all
 Listing.destroy_all
+User.destroy_all
 puts "destroyed"
 
 user = User.create!(
