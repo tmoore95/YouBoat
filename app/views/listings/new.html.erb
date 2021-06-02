@@ -1,4 +1,8 @@
-<%= simple_form_for(@listing) do |f| %>
+<div class='py-4'>
+
+<h2 class='offset-md-3 py-4'>Create a new listing</h2>
+
+<%= simple_form_for @listing, html: { class: "col-md-6 offset-md-3" } do |f| %>
 <%= f.input :name %>
 <%= f.input :craft_type %>
 <%= f.input :price_per_day %>
@@ -6,3 +10,5 @@
 <%= f.input :photo, as: :file %>
 <%= f.submit %>
 <% end %>
+
+</div>

@@ -12,3 +12,16 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/profile";
+
+.user {
+  border-radius: 25px;
+  color: rgb(34, 112, 163) !important;
+}
+
+.user:hover {
+  color: rgb(44, 44, 44) !important;
+}
+
+a {
+  text-decoration: none !important;
+}

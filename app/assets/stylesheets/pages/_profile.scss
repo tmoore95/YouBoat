@@ -1,7 +1,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 230px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,22 +60,27 @@
 }
 
 .bookings {
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .listings {
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .account-details {
-  padding: 2rem;
+  padding: 3rem;
+  width: 75%;
+
+  p {
+    margin-bottom: 0.7rem;
+  }
 }
 
 .profile-header {
   color: #212121;
-  margin-bottom: 2.5rem;
-  border-bottom: 2px solid #212121;
+  margin-bottom: 1.7rem;
   padding-bottom: 0.7rem;
+  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .card-tag-bottom {
@@ -96,4 +101,26 @@
   background-color: rgba(0, 0, 0, 0.2);
   padding: 5px;
   border-radius: 8px;
+}
+
+.booking-status {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.9rem;
+  background-color: rgba(183, 228, 23, 0.329);
+  padding: 5px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.location {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 8px;
+  text-transform: uppercase;
 }
