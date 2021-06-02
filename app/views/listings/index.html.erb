@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 <% @listings.each do |listing| %>
   <%= listing.name %>
   <%= cl_image_tag listing.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+=======
+<div class="listings">
+ <div class="cards">
+      <% @listings.each do |l| %>
+      <a href='/listings/<%=l.id%>'>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
+         <%= l.name %>
+         <div class='card-tag-bottom'>PPD £<%= l.price_per_day%></div>
+      </div>
+      </a>
+      <% end %>
+   </div>
+</div>
+>>>>>>> d153a8d38cdfa3ba7054f5ee301244651edbd96a
