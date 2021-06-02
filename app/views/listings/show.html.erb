@@ -5,31 +5,46 @@
     border-top-left-radius: 5px;
   }
 
-  .listing-card {
-    width: 36%;
+  .show-box{
+    display: flex;
+    justify-content: space-between;
   }
+
+  .listing-card {
+    width: 400px;
+    padding: 20px;
+  }
+
+  .map-padding {
+    padding: 20px;
+  }
+
 </style>
 
-<div class="container pt-3">
-  <div class="shadow listing-card">
-    <%= cl_image_tag @listing.photo.key, height: 230, width: 400, class: "show-image" %>
-    <div class="text m-2 p-2">
-      <h3><strong><%= @listing.name %></strong></h3>
-      <h4>Craft type: <%= @listing.craft_type %></h4>
-      <p>Location: <%= @listing.location %></p>
-      <p>Price per day: £<%= @listing.price_per_day %></p>
-      <% price = @listing.price_per_day * 7 * 0.9 %>
-      <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
-    <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
+<div class="show-box">
+
+  <%# <div class="container pt-3"> %>
+    <div class="shadow listing-card">
+      <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
+      <div class="text m-2 p-2">
+        <h3><strong><%= @listing.name %></strong></h3>
+        <h4>Craft type: <%= @listing.craft_type %></h4>
+        <p>Price per day: £<%= @listing.price_per_day %></p>
+        <% price = @listing.price_per_day * 7 * 0.9 %>
+        <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
+      <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
+      </div>
     </div>
-  </div>
+  <%# </div> %>
+
+  <%# <div class="container"> %>
+    <div class="map-padding" id="map"
+      style="width: 100%; height: 500px;"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  <%# </div> %>
+
 </div>
 
-<div class="container">
-  <div id="map"
-     style="width: 50%; height: 300px;"
-     data-markers="<%= @marker.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
 
