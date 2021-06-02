@@ -2,6 +2,12 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
     @current_user = current_user
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
   end
 
   def show

@@ -7,4 +7,7 @@ class Listing < ApplicationRecord
   validates :craft_type, presence: true
   validates :price_per_day, presence: true, numericality: { only_float: true }
   has_one_attached :photo
+  # GEOCODED BY LOCATION
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
