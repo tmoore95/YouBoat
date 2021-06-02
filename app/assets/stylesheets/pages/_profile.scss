@@ -124,3 +124,25 @@
   border-radius: 8px;
   text-transform: uppercase;
 }
+
+.card-booking {
+  text-align: center;
+  height: 200px;
+}
+
+.booking-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+.linear-gradient {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+}
+
+.show-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
