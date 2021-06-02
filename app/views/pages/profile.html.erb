@@ -19,6 +19,9 @@
       </div>
       </a>
       <% end %>
+      <% if @bookings.size == 0 %>
+       <p>None to show! <a href="/listings">Take a look at the listings?</a></p>
+       <%end%>
    </div>
 </div>
 <% else %>
@@ -35,6 +38,9 @@
       </div>
       </a>
       <% end %>
+       <% if @user.listings.size == 0 %>
+       <p>None to show! <a href="/listings/new">Create a listing? </a></p>
+       <%end%>
    </div>
 </div>
 

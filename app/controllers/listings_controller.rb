@@ -1,10 +1,12 @@
 class ListingsController < ApplicationController
   def index
     @listings = Listing.all
+    @current_user = current_user
   end
 
   def show
     @listing = Listing.find(params[:id])
+    @current_user = current_user
   end
   
   def new
