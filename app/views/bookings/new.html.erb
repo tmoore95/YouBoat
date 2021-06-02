@@ -1,11 +1,13 @@
 <div class='py-4'>
 
-<h2 class='offset-md-3 py-4'>Create a new booking</h2>
-
+<h2 class='offset-md-3 py-4'>New Booking - <%= @listing.name %>, <%= @listing.location %></h2>
+<h6 class='offset-md-3 py-4'>When would you like to rent this vessel? Pick a date.</h6>
 <%= simple_form_for [@listing, @booking], html: { class: "col-md-6 offset-md-3" } do |f| %>
 <%= f.input :start_date %>
 <%= f.input :end_date %>
-<%= f.submit %>
+<%= f.submit class: "btn btn-primary" %>
 <% end %>
 
 </div>
+
+<p style="margin-top: 0; padding-top: 0;" class='offset-md-3 py-4'>Once you have created the booking, <strong><%= @listing.user.name %> </strong> will be notified so that they can process it.</p>

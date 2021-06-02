@@ -3,8 +3,10 @@
    <h1 class='profile-header'>Account Details</h1>
    <p><strong>Name</strong>: <%= @current_user.name %></p>
    <p><strong>Email</strong>: <%= @current_user.email %></p>
-   <p><strong>My Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
-  <p><strong>My Listings</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
+   <p><strong>Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
+  <p><strong>Listings</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
+    <p><strong>Reviews</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
+
 </div>
 <div id='bookings-section' class='bookings'>
    <h1 class='profile-header'>My bookings</h1>
