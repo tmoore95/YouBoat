@@ -1,21 +1,26 @@
 
 <style>
   .show-image {
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .listing-card {
+    width: 36%;
   }
 </style>
 
 <div class="container pt-3">
-  <div class="show">
+  <div class="shadow listing-card">
     <%= cl_image_tag @listing.photo.key, height: 230, width: 400, class: "show-image" %>
-    <div class="text m-2">
+    <div class="text m-2 p-2">
       <h3><strong><%= @listing.name %></strong></h3>
-      <h2><%= @listing.craft_type %></h2>
+      <h4>Craft type: <%= @listing.craft_type %></h4>
       <p>Price per day: £<%= @listing.price_per_day %></p>
       <% price = @listing.price_per_day * 7 * 0.9 %>
       <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
+    <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
     </div>
-    <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary m-2" %>
   </div>
 </div>
 
