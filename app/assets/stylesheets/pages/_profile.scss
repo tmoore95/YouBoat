@@ -126,7 +126,7 @@
 
 .card-booking {
   text-align: center;
-  height: 200px;
+  height: 120px;
 }
 
 .booking-footer {
@@ -134,14 +134,19 @@
   align-items: center;
   justify-content: flex-end;
   padding: 12px;
+  margin-top: 20px;
 }
 
 .linear-gradient {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
 }
 
-.show-body {
+.cards-show {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 80px;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
