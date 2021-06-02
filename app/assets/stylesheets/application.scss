@@ -13,15 +13,25 @@
 @import "pages/index";
 @import "pages/profile";
 
-.user {
-  border-radius: 25px;
-  color: rgb(34, 112, 163) !important;
-}
-
-.user:hover {
-  color: rgb(44, 44, 44) !important;
-}
-
 a {
   text-decoration: none !important;
+}
+
+.sign-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  margin: 2px !important;
+}
+
+.nav-link {
+  border-bottom: 3px solid white;
+}
+
+.nav-link:hover {
+  border-bottom: 3px solid #136ce7;
 }
