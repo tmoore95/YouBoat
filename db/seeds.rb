@@ -25,7 +25,7 @@ puts "created user"
 
 list1 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
-  location: Faker::Address.city,
+  location: "South Dock, Rotherhithe, London",
   craft_type: Faker::Vehicle.make,
   price_per_day: (0..1000).to_a.sample,
   user: user
@@ -36,7 +36,7 @@ list1.save!
 
 list2 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
-  location: Faker::Address.city,
+  location: "Poole Harbour, Poole",
   craft_type: Faker::Vehicle.make,
   price_per_day: (0..1000).to_a.sample,
   user: user
@@ -47,7 +47,7 @@ list2.save!
 
 list3 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
-  location: Faker::Address.city,
+  location: "Port of Dover, Dover",
   craft_type: Faker::Vehicle.make,
   price_per_day: (0..1000).to_a.sample,
   user: user
@@ -58,7 +58,7 @@ list3.save!
 
 list4 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
-  location: Faker::Address.city,
+  location: "Port of Calais, Calais",
   craft_type: Faker::Vehicle.make,
   price_per_day: (0..1000).to_a.sample,
   user: user
@@ -69,7 +69,7 @@ list4.save!
 
 list5 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
-  location: Faker::Address.city,
+  location: "Saint-François, Le Havre",
   craft_type: Faker::Vehicle.make,
   price_per_day: (0..1000).to_a.sample,
   user: user
@@ -80,7 +80,7 @@ list5.save!
 
 list6 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
-  location: Faker::Address.city,
+  location: "Great Yarmouth",
   craft_type: Faker::Vehicle.make,
   price_per_day: (0..1000).to_a.sample,
   user: user

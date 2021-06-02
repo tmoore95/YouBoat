@@ -65,8 +65,4 @@ gem 'open-uri'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'cloudinary', '~> 1.16.0'
-<<<<<<< HEAD
-
 gem 'geocoder'
-=======
->>>>>>> 2189e3552d9a38cd4b6feacc7f4c561a41fea668

@@ -6,3 +6,9 @@
 
   <%= link_to "Book now", new_listing_booking_path(@listing), class: "book" %>
 </div>
+
+<div id="map"
+     style="width: 50%; height: 300px;"
+     data-markers="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

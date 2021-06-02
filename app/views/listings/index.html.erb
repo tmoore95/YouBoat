@@ -2,7 +2,7 @@
  <div class="cards">
       <% @listings.each do |l| %>
       <a href='/listings/<%=l.id%>'>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
          <%= l.name %>
          <div class='card-tag-bottom'>PPD £<%= l.price_per_day%></div>
       </div>
