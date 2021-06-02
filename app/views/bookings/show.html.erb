@@ -1,21 +1,18 @@
-<div class="container">
+<div style='margin-top: 5rem' class="container">
+
+<h2><%= @booking.listing.name %></strong></h2>
+<p><%= @booking.start_date %> --> <%= @booking.end_date %></p>
+<img class='shadow' style='width: 100%; height: 400px; object-fit: cover;' src="<%= cl_image_path @booking.listing.photo.key %>" alt="">
+
   <div class="card-booking">
-    <div class="cards mt-3">
-      <p><strong><%= "Name: #{@booking.listing.name}" %></strong></p>
+    <div class="cards mt-5">
       <p><strong><%= "Status: #{@booking.status}" %></strong></p>
       <p><strong><%= "Location: #{@booking.listing.location}" %></strong></p>
       <p><strong><%= "Craft Type: #{@booking.listing.craft_type}" %></strong></p>
       <p><strong><%= "Price (per day): £#{@booking.listing.price_per_day}" %></strong></p>
       <p><strong><%= "Rented by: #{@booking.user.name}" %></strong></p>
     </div>
-  </div>
-
-  <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @booking.listing.photo.key, height: 300, crop: :fill %>')">
-    </div>
-  </div>
-
-  
+  </div>  
   <div class="booking-footer">
       <p><%= link_to "Edit Booking", edit_booking_path(@booking), class: "btn btn-primary m-2" %></p>
       <p><%= link_to "Delete Booking", booking_path(@booking), method: :delete, class: "btn btn-primary" %></p>
