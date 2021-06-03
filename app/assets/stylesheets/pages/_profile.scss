@@ -104,6 +104,18 @@
   border-radius: 8px;
 }
 
+.pending-tag {
+  background-color: rgba(206, 179, 28, 0.4) !important;
+}
+
+.cancelled-tag {
+  background-color: rgba(194, 64, 55, 0.4) !important;
+}
+
+.approved-tag {
+  background-color: rgba(26, 165, 84, 0.4) !important;
+}
+
 .booking-host {
   position: absolute;
   top: 10px;
@@ -178,6 +190,7 @@
 .booking-statuses {
   display: flex;
   flex-direction: row;
+  margin-bottom: 1rem;
 }
 
 .booking-status-item {
