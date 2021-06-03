@@ -1,6 +1,20 @@
-<div class='py-4'>
+<style>
 
-<h2 class='offset-md-3 py-4'>Create a new listing</h2>
+body {
+  background-image: url('https://static.scientificamerican.com/sciam/cache/file/30647AC1-B772-4607-BF3C3D43456E7103_source.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+</style>
+
+<div style=' width: 100%; margin-top:4.5rem !important;margin-bottom:3rem !important; border-radius: 12px !important; padding-bottom: 3rem !important;' class='container bg-white py-4 rounded shadow-lg'>
+
+<h2 class='offset-md-3 py-4'><i style='color:#177FFC;' class="bi bi-plus-circle"></i>
+ List your vessel</h2>
+
+<p style='font-size: 1.2rem' class='offset-md-3 pb-2'>Tell us about it captain! ⛴</p>
 
 <%= simple_form_for @listing, html: { class: "col-md-6 offset-md-3" } do |f| %>
 <%= f.input :name %>

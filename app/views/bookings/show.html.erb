@@ -1,7 +1,7 @@
 <div style='margin-top: 5rem' class="container">
 
 <h2><i class="fas fa-anchor"></i>  <%= @booking.listing.name %></strong></h2>
-<p>Booking dates: <%= @booking.start_date.strftime("%A, %b %d") %> to <%= @booking.end_date.strftime("%A, %b %d") %></p>
+<p><%= @booking.start_date.strftime("%A, %b %d") %> to <%= @booking.end_date.strftime("%A, %b %d") %></p>
 
 <div class="shadow listing-card p-4" id="background-white">
   <div class="cards-show">
@@ -14,12 +14,15 @@
   </div>
     <div class="card-booking">
       <div class= "card-booking-info">
-        <p><strong>Status: </strong><%= "#{@booking.status}" %></p>
+        <p><strong>Status <i class="bi bi-bell-fill"></i>:</strong> <%= "#{@booking.status}" %></p>
         <p><strong>Location <i class="fas fa-search-location"></i> : </strong><%= "#{@booking.listing.location}" %></p>
-        <p><strong>Rented by: </strong><%= "#{@booking.user.name}" %></p>
+        <p><strong>Rented by <i class="bi bi-person-circle"></i>
+: </strong><%= "#{@booking.user.name}" %></p>
         <p><strong>Craft Type <i class="fas fa-ship"></i> : </strong><%= "#{@booking.listing.craft_type}" %></p>
-        <p><strong>Price: </strong>£<%= "#{@booking.listing.price_per_day} / day" %></p>
-        <p><strong>Contact Email: </strong><%= "#{@booking.user.email}" %></p>
+        <p><strong>Price <i class="bi bi-currency-exchange"></i>
+: </strong>£<%= "#{@booking.listing.price_per_day} / day" %></p>
+        <p><strong>Contact Email <i class="bi bi-envelope-fill"></i>
+: </strong><%= "#{@booking.user.email}" %></p>
       </div>
     </div>
       <div class="card-booking-buttons">
@@ -36,21 +39,21 @@
 
 <% if @booking.status == "Pending" %>
   <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-    <span><strong>Aye matey!</strong> your booking status for <%= @booking.listing.name %> is pending!</span>
+    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> is pending!&nbsp</span>
     <a data-dismiss="alert" aria-label="Close">
       <i class="fas fa-times"></i>
     </a>
   </div>
 <% elsif @booking.status == "Approved" %>
   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <span><strong>Aye matey!</strong> your booking status for <%= @booking.listing.name %> has been approved!</span>
+    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> has been approved!&nbsp</span>
     <a data-dismiss="alert" aria-label="Close">
       <i class="fas fa-times"></i>
     </a>
   </div>
 <% else %>
   <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-    <span><strong>Aye matey!</strong> your booking status for <%= @booking.listing.name %> has been cancelled!</span>
+    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> has been cancelled!&nbsp</span>
     <a data-dismiss="alert" aria-label="Close">
       <i class="fas fa-times"></i>
     </a>

@@ -178,7 +178,7 @@
   flex-direction: row;
   padding: 2rem;
   border-radius: 12px;
-  width: 700px;
+  width: 740px;
   border: 1px solid lightgray;
   border-bottom: 5px solid rgba(56, 140, 250, 0.4);
   height: 220px;
@@ -201,7 +201,6 @@
   padding: 0.3rem;
   border-radius: 25px;
   color: white;
-  font-weight: 600;
 }
 
 .flash {
@@ -240,4 +239,18 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+.online-badge {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #79c600;
+  position: relative;
+  top: 7rem;
+  right: 4.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
