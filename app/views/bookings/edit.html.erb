@@ -1,7 +1,7 @@
 
-<%= simple_form_for [@listing, @booking], html: { class: "col-md-6 offset-md-3" } do |f| %>
+<%= simple_form_for [@listing, @booking], html: { class: "col-md-6 offset-md-3 py-5" } do |f| %>
 <%= f.input :start_date %>
 <%= f.input :end_date %>
 <%= f.input :status, :collection => %w[Pending Approved Cancelled]%>
-<%= f.submit %>
+<%= f.submit class: "btn btn-primary" %>
 <% end %>

@@ -16,6 +16,12 @@ class BookingsController < ApplicationController
     c_listings = []
     @current_user.listings.each { |l| c_listings << l.id }
     @owner = c_listings.include?(@booking.listing_id)
+    @listing = Listing.find(params[:id])
+    @current_user = current_user
+    @marker = [{
+      lat: @listing.latitude,
+      lng: @listing.longitude
+    }]
   end
   
   def new

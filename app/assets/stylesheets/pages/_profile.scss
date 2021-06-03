@@ -137,15 +137,13 @@
 
 .card-booking {
   text-align: center;
-  height: 120px;
+  height: 150px;
 }
 
 .booking-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 12px;
-  margin-top: 20px;
 }
 
 .linear-gradient {
@@ -155,7 +153,7 @@
 .cards-show {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 80px;
+  grid-gap: 24px;
 }
 
 .box-shadow {
@@ -203,6 +201,10 @@
   margin: 8px;
 }
 
+#background-white {
+  background: white;
+}
+
 .flash-success {
   border: 2px solid #1EDD88;
 }
@@ -213,4 +215,15 @@
 
 .flash-danger {
   border: 2px solid #FD1015;
+}
+
+.card-booking-info {
+  text-align: left;
+  line-height: 8px;
+}
+
+.card-booking-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
