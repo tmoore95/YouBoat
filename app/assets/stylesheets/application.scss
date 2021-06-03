@@ -68,7 +68,9 @@ h6 {
 
 .banner-text {
   color: white;
+  font-size: 5rem;
   font-weight: 600;
+  user-select: none;
 }
 
 .search-input {
@@ -77,6 +79,17 @@ h6 {
 
 body {
   padding-top: 40px;
+}
+
+.listings-home {
+  position: relative;
+  bottom: 170px;
+  background-color: white !important;
+}
+
+.map-home {
+  position: relative;
+  bottom: 200px;
 }
 
 #search-button {

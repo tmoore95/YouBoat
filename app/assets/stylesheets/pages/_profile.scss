@@ -201,6 +201,7 @@
   padding: 0.3rem;
   border-radius: 25px;
   color: white;
+  font-weight: 600;
 }
 
 .flash {
@@ -209,7 +210,7 @@
   justify-content: space-between;
   align-items: center;
   background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   margin: 8px;
 }
@@ -219,15 +220,15 @@
 }
 
 .flash-success {
-  border: 2px solid #1EDD88;
+  border: 2px solid #1edd88;
 }
 
 .flash-warning {
-  border: 2px solid #FFC65A;
+  border: 2px solid #ffc65a;
 }
 
 .flash-danger {
-  border: 2px solid #FD1015;
+  border: 2px solid #fd1015;
 }
 
 .card-booking-info {

@@ -1,6 +1,6 @@
 <div class ='home-banner'>
   <div>
-   <h1 class='banner-text'>Ready to set sail.</h1>
+   <h1 class='banner-text'>Ready to set sail? ⛵️</h1>
    <%= form_tag root_path, method: :get do %>
      <%= text_field_tag :query,
        params[:query],
@@ -32,12 +32,21 @@
 </div>
 
 <% if @listings.exists? %>
-  <div class="container-fluid">
-    <div id="map" class='shadow-lg'
-       style="width: 100%; height: 600px; border-radius: 25px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+<div class='map-home'>
+
+<h1 class='text-center pt-5'>Check the charts <i class="bi bi-compass"></i></h1>
+<p class='text-center pb-4'>Find a boat in your corner of the map.</p>
+
+
+<div class="container-fluid">
+  <div id="map" class='shadow-lg'
+     style="width: 100%; height: 600px; border-radius: 25px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
+
+</div>
+
 <% end %>
 
