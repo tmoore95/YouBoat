@@ -33,9 +33,9 @@
         <p>Price per day: £<%= @listing.price_per_day %></p>
         <% price = @listing.price_per_day * 7 * 0.9 %>
         <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
-        <% if @current_user.id == @listing.user_id %>
+        <% if current_user.id == @listing.user_id %>
           <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
-          <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-primary" %>
+          <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
         <% else %>
           <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
         <% end %>
@@ -50,9 +50,12 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header border-bottom-0">
-                <%= simple_form_for @review, url: listing_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
-                <%= f.input :rating %>
-                <%= f.input :content %>
+                <%= simple_form_for @review, url: new_review_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
+                <p>Rate from 1-5:</p>
+                <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+                <%= b.radio_button + b.label {''} %>
+                <% end %>
+                <%= f.input :content, label: "Review:" %>
                 <%= f.submit class: "btn btn-primary" %>
                 <% end %>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -61,6 +64,14 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="reviews pt-4">
+          <% @reviews = @listing.reviews %>
+          <% @reviews.each do |r| %>
+          <p><%= r.user.email %>:</p>
+          <p>Rating: <%= r.rating %> stars</p>
+          <p><%= r.content %></p>
+          <% end %>
         </div>
       </div>
     </div>
