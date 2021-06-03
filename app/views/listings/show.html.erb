@@ -33,7 +33,12 @@
         <p>Price per day: £<%= @listing.price_per_day %></p>
         <% price = @listing.price_per_day * 7 * 0.9 %>
         <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
-      <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
+        <% if @current_user.id == @listing.user_id %>
+          <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
+          <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   <%# </div> %>
