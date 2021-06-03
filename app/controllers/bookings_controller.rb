@@ -1,6 +1,13 @@
 class BookingsController < ApplicationController
    def index
+    @listings = Listing.all
     @bookings = current_user.bookings
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
   end
 
   def show
@@ -9,6 +16,12 @@ class BookingsController < ApplicationController
     c_listings = []
     @current_user.listings.each { |l| c_listings << l.id }
     @owner = c_listings.include?(@booking.listing_id)
+    @listing = Listing.find(params[:id])
+    @current_user = current_user
+    @marker = [{
+      lat: @listing.latitude,
+      lng: @listing.longitude
+    }]
   end
   
   def new

@@ -4,6 +4,6 @@ class Booking < ApplicationRecord
   after_initialize :set_status
 
   def set_status
-    self.status ||= "pending"
+    self.status ||= "Pending"
   end
 end

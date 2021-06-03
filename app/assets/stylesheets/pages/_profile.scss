@@ -104,6 +104,18 @@
   border-radius: 8px;
 }
 
+.pending-tag {
+  background-color: rgba(206, 179, 28, 0.4) !important;
+}
+
+.cancelled-tag {
+  background-color: rgba(194, 64, 55, 0.4) !important;
+}
+
+.approved-tag {
+  background-color: rgba(26, 165, 84, 0.4) !important;
+}
+
 .booking-host {
   position: absolute;
   top: 10px;
@@ -137,24 +149,27 @@
 
 .card-booking {
   text-align: center;
-  height: 200px;
+  height: 150px;
 }
 
 .booking-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 12px;
 }
 
 .linear-gradient {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 
-.show-body {
+.cards-show {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 24px;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .profile-section {
@@ -178,6 +193,7 @@
 .booking-statuses {
   display: flex;
   flex-direction: row;
+  margin-bottom: 1rem;
 }
 
 .booking-status-item {
@@ -185,4 +201,43 @@
   padding: 0.3rem;
   border-radius: 25px;
   color: white;
+  font-weight: 600;
+}
+
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+#background-white {
+  background: white;
+}
+
+.flash-success {
+  border: 2px solid #1edd88;
+}
+
+.flash-warning {
+  border: 2px solid #ffc65a;
+}
+
+.flash-danger {
+  border: 2px solid #fd1015;
+}
+
+.card-booking-info {
+  text-align: left;
+  line-height: 8px;
+}
+
+.card-booking-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

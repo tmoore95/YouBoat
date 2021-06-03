@@ -55,3 +55,36 @@ h5,
 h6 {
   font-family: "Open Sans", sans-serif;
 }
+
+.home-banner {
+  background-image: url("https://oceanfdn.org/wp-content/uploads/2010/08/SargassoSea.jpg");
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-text {
+  color: white;
+  font-size: 5rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+body {
+  padding-top: 40px;
+}
+
+.listings-home {
+  position: relative;
+  bottom: 170px;
+  background-color: white !important;
+}
+
+.map-home {
+  position: relative;
+  bottom: 200px;
+}
