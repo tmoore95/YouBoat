@@ -4,7 +4,7 @@ input {
   color: black;
   position: relative;
   bottom: 6rem;
-  left: 6rem;
+  left: 4.8rem;
   border: none;
   border-radius: 12px;
   transparency: 0.8;
@@ -89,7 +89,7 @@ input {
          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
             <%= b.listing.name %>
             <div class='card-tag-bottom'><%= b.start_date%></div>
-            <div class='booking-host'>Renter: <%= b.listing.user.email%></div>
+            <div class='booking-host'>Customer: <%= b.user.email%></div>
             <div class='booking-status pending-tag'><%= b.status%></div>
             <%= button_to 'ACCEPT', {:controller => "pages", :action => "booking_approve", :booking_id => b.id },  :method=>:post  %>
             <%= button_to 'DECLINE', {:controller => "pages", :action => "booking_decline", :booking_id => b.id },  :method=>:patch  %>
@@ -100,7 +100,7 @@ input {
          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
             <%= b.listing.name %>
             <div class='card-tag-bottom'><%= b.start_date%></div>
-            <div class='booking-host'>Renter: <%= b.listing.user.email%></div>
+            <div class='booking-host'>Customer: <%= b.user.email%></div>
             <div class='booking-status approved-tag'><%= b.status%></div>
          </div>
       </a>
@@ -110,7 +110,7 @@ input {
          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
             <%= b.listing.name %>
             <div class='card-tag-bottom'><%= b.start_date%></div>
-            <div class='booking-host'>Renter: <%= b.listing.user.email%></div>
+            <div class='booking-host'>Customer: <%= b.user.email%></div>
             <div class='booking-status cancelled-tag'><%= b.status%></div>
          </div>
       </a>
