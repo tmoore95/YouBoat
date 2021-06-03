@@ -25,7 +25,9 @@
   </div>
   
   <div class="booking-footer">
+  <% if @owner == true %>
       <p><%= link_to "Edit Booking", edit_booking_path(@booking), class: "btn btn-primary m-2" %></p>
+  <% end %>
       <p><%= link_to "Cancel Booking", booking_path(@booking), method: :delete, class: "btn btn-primary" %></p>
       <p><%= link_to "back", profile_path(@booking.user), class: "btn btn-primary" %></p>
   </div>

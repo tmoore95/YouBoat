@@ -63,7 +63,7 @@
   padding: 2rem;
   margin: 3rem;
   border-radius: 8px;
-  border-bottom: 5px solid #378cf9;
+  border-bottom: 5px solid rgba(56, 140, 250, 0.4);
   user-select: none;
 }
 
@@ -71,7 +71,7 @@
   padding: 2rem;
   margin: 3rem;
   border-radius: 8px;
-  border-bottom: 5px solid #378cf9;
+  border-bottom: 5px solid rgba(56, 140, 250, 0.4);
   user-select: none;
 }
 
@@ -169,12 +169,13 @@
   border-radius: 12px;
   width: 700px;
   border: 1px solid lightgray;
-  border-bottom: 5px solid #378cf9;
+  border-bottom: 5px solid rgba(56, 140, 250, 0.4);
   height: 220px;
   user-select: none;
 
   p {
     margin-bottom: 5px;
+    color: #555454;
   }
 }
 
