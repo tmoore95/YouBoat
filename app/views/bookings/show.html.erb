@@ -1,7 +1,7 @@
 <div style='margin-top: 5rem' class="container">
 
 <h2><%= @booking.listing.name %></strong></h2>
-<p><%= @booking.start_date %> --> <%= @booking.end_date %></p>
+<p><%= @booking.start_date.strftime %> to <%= @booking.end_date %></p>
 <img class='shadow' style='width: 100%; height: 400px; object-fit: cover;' src="<%= cl_image_path @booking.listing.photo.key %>" alt="">
 
   <div class="card-booking">
@@ -15,7 +15,7 @@
   </div>  
   <div class="booking-footer">
       <p><%= link_to "Edit Booking", edit_booking_path(@booking), class: "btn btn-primary m-2" %></p>
-      <p><%= link_to "Delete Booking", booking_path(@booking), method: :delete, class: "btn btn-primary" %></p>
+      <p><%= link_to "Cancel Booking", booking_path(@booking), method: :delete, class: "btn btn-primary" %></p>
   </div>
 
 </div>
