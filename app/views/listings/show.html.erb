@@ -40,6 +40,28 @@
           <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
         <% end %>
         <%= link_to "Back", listings_path, class: "btn btn-secondary" %>
+        <%# MODAL FORM %>
+        <div class="container">
+          <button type="button" class="btn btn-success review-btn" data-toggle="modal" data-target="#form">
+            Leave review
+          </button>  
+        </div>
+        <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header border-bottom-0">
+                <%= simple_form_for @review, url: listing_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
+                <%= f.input :rating %>
+                <%= f.input :content %>
+                <%= f.submit class: "btn btn-primary" %>
+                <% end %>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   <%# </div> %>
@@ -53,5 +75,3 @@
   <%# </div> %>
 
 </div>
-
-
