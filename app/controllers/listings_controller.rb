@@ -5,7 +5,9 @@ class ListingsController < ApplicationController
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
-        lng: listing.longitude
+        lng: listing.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { listing: listing }),
+        image_url: helpers.asset_url('https://svgsilh.com/svg/153812.svg')
       }
     end
   end
@@ -15,7 +17,8 @@ class ListingsController < ApplicationController
     @current_user = current_user
     @marker = [{
       lat: @listing.latitude,
-      lng: @listing.longitude
+      lng: @listing.longitude,
+      image_url: helpers.asset_url('https://svgsilh.com/svg/153812.svg')
     }]
   end
   
