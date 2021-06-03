@@ -8,9 +8,9 @@ class PagesController < ApplicationController
     @bookings = @current_user.bookings
     c_listings = []
     @current_user.listings.each { |l| c_listings << l.id }
-    @mbpending = Booking.all.select { |b| c_listings.include?(b.listing_id) && b.status == 'pending' }
-    @mbapproved = Booking.all.select { |b| c_listings.include?(b.listing_id) && b.status == 'Approved' }
-    @mbcancelled = Booking.all.select { |b| c_listings.include?(b.listing_id) && b.status == 'Cancelled' }
+    @mbpending = Booking.all.select { |b| c_listings.include?(b.listing_id) && b.status.downcase == 'pending' }
+    @mbapproved = Booking.all.select { |b| c_listings.include?(b.listing_id) && b.status.downcase == 'approved' }
+    @mbcancelled = Booking.all.select { |b| c_listings.include?(b.listing_id) && b.status.downcase == 'cancelled' }
     @totalcustomer = @mbpending.count + @mbapproved.count + @mbcancelled.count
   end
 
