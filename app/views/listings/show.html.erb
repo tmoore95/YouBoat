@@ -20,38 +20,39 @@
   }
 
 </style>
+<div class="margin-top-80">
+  <div class="show-box">
 
-<div class="show-box">
-
-  <%# <div class="container pt-3"> %>
-    <div class="shadow listing-card">
-      <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
-      <div class="text m-2 p-2">
-        <h3><strong><%= @listing.name %></strong></h3>
-        <h4>Craft type: <%= @listing.craft_type %></h4>
-        <p>Location: <%= @listing.location %></p>
-        <p>Price per day: £<%= @listing.price_per_day %></p>
-        <% price = @listing.price_per_day * 7 * 0.9 %>
-        <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
-        <% if @current_user.id == @listing.user_id %>
-          <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
-          <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
-        <% else %>
-          <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
-        <% end %>
-        <%= link_to "Back", listings_path, class: "btn btn-secondary" %>
+    <%# <div class="container pt-3"> %>
+      <div class="shadow listing-card">
+        <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
+        <div class="text m-2 p-2">
+          <h3><strong><%= @listing.name %></strong></h3>
+          <h4>Craft type: <%= @listing.craft_type %></h4>
+          <p>Location: <%= @listing.location %></p>
+          <p>Price per day: £<%= @listing.price_per_day %></p>
+          <% price = @listing.price_per_day * 7 * 0.9 %>
+          <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
+          <% if @current_user.id == @listing.user_id %>
+            <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
+            <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to "Back", listings_path, class: "btn btn-secondary" %>
+        </div>
       </div>
-    </div>
-  <%# </div> %>
+    <%# </div> %>
 
-  <%# <div class="container"> %>
-    <div class="map-padding" id="map"
-      style="width: 100%; height: 700px;"
-      data-markers="<%= @marker.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  <%# </div> %>
+    <%# <div class="container"> %>
+      <div class="map-padding shadow" id="map"
+        style="width: 100%; height: 700px;"
+        data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    <%# </div> %>
 
+  </div>
 </div>
 
 
