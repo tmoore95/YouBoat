@@ -1,2 +1,7 @@
-<h2><%= listing.name %></h2>
-<p><%= listing.price_per_day %></p>
+
+<%= cl_image_tag listing.photo.key, class: "map-img" %>
+<a href='/listings/<%=listing.id%>'>
+  <h4><%= listing.name %></h4>
+</a>
+<h6 class="card-price">£<%= listing.price_per_day %></h6>
+
