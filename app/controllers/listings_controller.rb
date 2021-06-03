@@ -14,6 +14,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @review = Review.new
     @current_user = current_user
     @marker = [{
       lat: @listing.latitude,
