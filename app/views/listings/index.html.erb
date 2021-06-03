@@ -1,25 +1,43 @@
 <div class ='home-banner'>
-<h1 class='banner-text'>Ready to set sail.</h1>
-</div>
-
-<div class="listings shadow-lg">
- <div class="cards">
-      <% @listings.each do |l| %>
-      <a href='/listings/<%=l.id%>'>
-         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
-         <%= l.name %>
-         <div class='card-tag-bottom'>£<%= l.price_per_day%> / Day</div>
-         <div class='location'><%= l.location%></div>
-      </div>
-      </a>
-      <% end %>
-   </div>
-</div>
-
-<div class="container-fluid">
-  <div id="map" class='shadow-lg'
-     style="width: 100%; height: 600px; border-radius: 25px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div>
+   <h1 class='banner-text'>Ready to set sail.</h1>
+   <%= form_tag root_path, method: :get do %>
+     <%= text_field_tag :query,
+       params[:query],
+       class: "form-control search-input",
+       placeholder: "Search Listings"
+     %>
+     <%= submit_tag "Search", class: "btn btn-primary", id: "search-button" %>
+   <% end %>
   </div>
 </div>
+
+
+<div class="listings shadow-lg listings-home">
+  <% if @listings.exists? %>
+    <div class="cards">
+      <% @listings.each do |l| %>
+      <a href='/listings/<%=l.id%>'>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
+         <%= l.name %>
+          <div class='card-tag-bottom'>£<%= l.price_per_day%> / Day</div>
+          <div class='location'><%= l.location%></div>
+        </div>
+      </a>
+      <% end %>
+    </div>
+  <% else %>
+    <h1>Avast! No listings found!</h1>
+  <% end %>
+</div>
+
+<% if @listings.exists? %>
+  <div class="container-fluid">
+    <div id="map" class='shadow-lg'
+       style="width: 100%; height: 600px; border-radius: 25px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+<% end %>
+

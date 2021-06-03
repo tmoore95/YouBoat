@@ -10,4 +10,16 @@ class Listing < ApplicationRecord
   # GEOCODED BY LOCATION
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  # SEARCH STUFF
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :craft_type ],
+    associated_against: {
+      user: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
+
+  
