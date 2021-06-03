@@ -1,8 +1,8 @@
 <div class ='home-banner'>
-<h1 class='banner-text'>Ready to set sail.</h1>
+<h1 class='banner-text'>Ready to set sail? ⛵️</h1>
 </div>
 
-<div class="listings shadow-lg">
+<div class="listings shadow-lg listings-home">
  <div class="cards">
       <% @listings.each do |l| %>
       <a href='/listings/<%=l.id%>'>
@@ -16,10 +16,17 @@
    </div>
 </div>
 
+<div class='map-home'>
+
+<h1 class='text-center pt-5'>Check the charts <i class="bi bi-compass"></i></h1>
+<p class='text-center pb-4'>Find a boat in your corner of the map.</p>
+
 <div class="container-fluid">
   <div id="map" class='shadow-lg'
      style="width: 100%; height: 600px; border-radius: 25px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
+
 </div>
