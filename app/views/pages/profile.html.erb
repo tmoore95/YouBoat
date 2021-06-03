@@ -1,6 +1,6 @@
 <% if @current_user == @user %>
 <div class='account-details'>
-   <h1 style='background-color: rgba(56, 140, 250, 0.9); width: 400px; padding: 1rem; color: white;' class='profile-header shadow-lg'><%= @current_user.name %>is on Deck. ⚓️</h1>
+   <h1 style='background-color: rgba(56, 140, 250, 0.9); width: 400px; padding: 1rem; color: white;' class='profile-header shadow-lg'><%= @current_user.name %> is on Deck. ⚓️</h1>
    <div class='profile-section shadow-lg'>
       <img class="avatar-large dropdown-toggle shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://pbs.twimg.com/profile_images/1262420533213368323/SIOecIDH.jpg" />
       <div style='margin-left: 3rem;'>
@@ -61,8 +61,8 @@
  CUSTOMER BOOKINGS</h1>
 <div class='booking-statuses'>
    <p class='shadow booking-status-item'>Pending (<%= @mbpending.size %>)</p>
-   <p class='shadow booking-status-item' style='margin-left: 0.3rem'>Approved (<%= @mbpending.size %>)</p>
-   <p class='shadow booking-status-item' style='margin-left: 0.3rem'>Cancelled (<%= @mbpending.size %>)</p>
+   <p class='shadow booking-status-item' style='margin-left: 0.3rem'>Approved (<%= @mbapproved.size %>)</p>
+   <p class='shadow booking-status-item' style='margin-left: 0.3rem'>Cancelled (<%= @mbcancelled.size %>)</p>
 </div>
 <div class="cards">
    <% @mbpending.each do |b| %>
@@ -75,7 +75,27 @@
       </div>
    </a>
    <% end %>
-   <% if @mbpending.size == 0 && @current_user = @user %>
+   <% @mbapproved.each do |b| %>
+   <a href='/bookings/<%=b.id%>'>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
+         <%= b.listing.name %>
+         <div class='card-tag-bottom'><%= b.start_date%></div>
+         <div class='booking-host'>Renter: <%= b.listing.user.email%></div>
+         <div class='booking-status'><%= b.status%></div>
+      </div>
+   </a>
+   <% end %>
+   <% @mbcancelled.each do |b| %>
+   <a href='/bookings/<%=b.id%>'>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
+         <%= b.listing.name %>
+         <div class='card-tag-bottom'><%= b.start_date%></div>
+         <div class='booking-host'>Renter: <%= b.listing.user.email%></div>
+         <div class='booking-status'><%= b.status%></div>
+      </div>
+   </a>
+   <% end %>
+   <% if @mbpending.size == 0 && @mbapproved.size == 0 && @mbcancelled.size == 0 && @current_user = @user %>
    <p>None to show at the moment! As soon as you receive a booking it will be ready for you to process.</p>
    <%end%>
 </div>
