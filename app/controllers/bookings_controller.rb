@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @booking = Booking.find(params[:id])
+    c_listings = []
+    @current_user.listings.each { |l| c_listings << l.id }
+    @owner = c_listings.include?(@booking.listing_id)
   end
   
   def new
