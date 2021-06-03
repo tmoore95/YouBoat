@@ -1,6 +1,18 @@
-<div  style='width: 33%;' class='container my-5'>
+<style>
 
-<h2 class='my-4'>Log in to YouBoat</h2>
+body {
+  background-image: url('https://wallpaperaccess.com/full/1302472.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+</style>
+
+<div  style='width: 33%; margin-top:10rem !important;margin-bottom:5rem !important; border-radius: 12px !important;' class='container bg-white p-3 rounded shadow-lg'>
+
+<h2 class='pb-3'>Login
+</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">

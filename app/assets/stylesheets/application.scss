@@ -57,7 +57,7 @@ h6 {
 }
 
 .home-banner {
-  background-image: url("https://oceanfdn.org/wp-content/uploads/2010/08/SargassoSea.jpg");
+  background-color: #177ffc;
   width: 100%;
   height: 500px;
   background-position: center;
@@ -87,4 +87,10 @@ body {
 .map-home {
   position: relative;
   bottom: 200px;
+}
+
+.card-booking-info {
+  p {
+    margin-bottom: 7px;
+  }
 }
