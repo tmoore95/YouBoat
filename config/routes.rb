@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :bookings, except: [:new, :create]
   get "/users/:id", to: "pages#profile", as: "profile"
   post "/users/:id", to: "pages#booking_approve"
+  patch "/users/:id", to: "pages#booking_decline"
 end
