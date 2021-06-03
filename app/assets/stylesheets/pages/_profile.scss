@@ -60,15 +60,24 @@
 }
 
 .bookings {
-  padding: 3rem;
+  padding: 2rem;
+  margin: 3rem;
+  border-radius: 8px;
+  border-bottom: 5px solid #378cf9;
+  user-select: none;
 }
 
 .listings {
-  padding: 3rem;
+  padding: 2rem;
+  margin: 3rem;
+  border-radius: 8px;
+  border-bottom: 5px solid #378cf9;
+  user-select: none;
 }
 
 .account-details {
-  padding: 3rem;
+  padding: 2rem;
+  margin: 3rem;
   width: 75%;
 
   p {
@@ -77,10 +86,11 @@
 }
 
 .profile-header {
-  color: #212121;
+  color: #666666;
   margin-bottom: 1.7rem;
-  padding-bottom: 0.7rem;
-  text-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  font-weight: 600;
+  font-size: 30px !important;
 }
 
 .card-tag-bottom {
@@ -138,15 +148,45 @@
 }
 
 .linear-gradient {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 
 .cards-show {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 80px;
+  
 }
 
 .box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 700px;
+  border: 1px solid lightgray;
+  border-bottom: 5px solid #378cf9;
+  height: 220px;
+  user-select: none;
+
+  p {
+    margin-bottom: 5px;
+  }
+}
+
+.booking-statuses {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-status-item {
+  background-color: rgba(56, 140, 250, 0.6);
+  padding: 0.3rem;
+  border-radius: 25px;
+  color: white;
 }

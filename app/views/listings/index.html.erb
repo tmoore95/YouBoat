@@ -1,4 +1,6 @@
-<div class="listings">
+<img >
+
+<div class="listings shadow-lg">
  <div class="cards">
       <% @listings.each do |l| %>
       <a href='/listings/<%=l.id%>'>
@@ -12,8 +14,8 @@
    </div>
 </div>
 
-<div class="listings">
-  <div id="map"
+<div class="container-fluid">
+  <div id="map" class='shadow-lg'
      style="width: 100%; height: 600px; border-radius: 25px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

@@ -1,49 +1,83 @@
 <% if @current_user == @user %>
 <div class='account-details'>
-   <h1 class='profile-header'>Welcome, <%= @current_user.name %></h1>
-   <img class="avatar-large dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://pbs.twimg.com/profile_images/1262420533213368323/SIOecIDH.jpg" />
-   <p><strong>Email</strong>: <%= @current_user.email %></p>
-   <p><strong>Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
-  <p><strong>Listings</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
-    <p><strong>Reviews</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
-
+   <h1 style='background-color: rgba(56, 140, 250, 0.9); width: 400px; padding: 1rem; color: white;' class='profile-header shadow-lg'><%= @current_user.name %>is on Deck. ⚓️</h1>
+   <div class='profile-section shadow-lg'>
+      <img class="avatar-large dropdown-toggle shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://pbs.twimg.com/profile_images/1262420533213368323/SIOecIDH.jpg" />
+      <div style='margin-left: 3rem;'>
+         <p><strong>Email</strong>: <%= @current_user.email %></p>
+         <p><strong>My Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
+         <p><strong>My Listings</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
+         <p><strong>My Reviews</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
+         <p><strong>Customer bookings</strong>: Pending <a href="#listings-section">(<%= @mbpending.count%>)</a> Approved <a href="#listings-section">(<%= @mbapproved.count%>)</a> Cancelled <a href="#listings-section">(<%= @mbcancelled.count%>)</a></p>
+      </div>
+   </div>
+   </div>
 </div>
-<div id='bookings-section' class='bookings'>
-   <h1 class='profile-header'>My bookings</h1>
+<div>
+<div id='bookings-section' class='bookings shadow-lg'>
+   <h1 class='profile-header'><i class="bi bi-bookmark-star-fill"></i>
+ MY BOOKINGS</h1>
    <div class="cards">
       <% @bookings.each do |b| %>
       <a href='/bookings/<%=b.id%>'>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
-         <%= b.listing.name %>
-         <div class='card-tag-bottom'><%= b.start_date%></div>
-         <div class='booking-host'>Host: <%= b.listing.user.email%></div>
-         <div class='booking-status'><%= b.status%></div>
-      </div>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
+            <%= b.listing.name %>
+            <div class='card-tag-bottom'><%= b.start_date%></div>
+            <div class='booking-host'>Hosted by: <%= b.listing.user.email%></div>
+            <div class='booking-status'><%= b.status%></div>
+         </div>
       </a>
       <% end %>
       <% if @bookings.size == 0 %>
-       <p>None to show! <a href="/listings">Take a look at the listings?</a></p>
-       <%end%>
+      <p>None to show! <a href="/listings">Take a look at the listings?</a></p>
+      <%end%>
    </div>
 </div>
 <% else %>
-<%= @user.name %>
 <% end %>
-<div id='listings-section' class='listings'>
-   <h1 class='profile-header'><%=@user == @current_user ? 'My listings' : 'User Listings'%></h1>
+<div id='listings-section' class='listings shadow-lg'>
+   <h1 class='profile-header'><i class="bi bi-border-width"></i>
+<%=@user == @current_user ? 'MY LISTINGS' : 'USER LISTINGS'%></h1>
    <div class="cards">
-      <% @user.listings.each do |l| %>
+      <% @current_user.listings.each do |l| %>
       <a href='/listings/<%=l.id%>'>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
-         <%= l.name %>
-         <div class='card-tag-bottom'>£<%= l.price_per_day%></div>
-         <div class='location'><%= l.location%></div>
-      </div>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path l.photo.key, height: 300, crop: :fill %>')">
+            <%= l.name %>
+            <div class='card-tag-bottom'>£<%= l.price_per_day%></div>
+            <div class='location'><%= l.location%></div>
+         </div>
       </a>
       <% end %>
-       <% if @user.listings.size == 0 %>
-       <p>None to show! <a href="/listings/new">Create a listing? </a></p>
-       <%end%>
+      <% if @user.listings.size == 0 && @user == @current_user %>
+      <p>None to show! <a href="/listings/new">Create a listing? </a></p>
+      <%end%>
    </div>
 </div>
+<%if @current_user == @user %>
+<div id='bookings-section' class='bookings shadow-lg'>
+<h1 style='margin-bottom: 20px' class='profile-header'><i class="bi bi-people-fill"></i>
 
+
+ CUSTOMER BOOKINGS</h1>
+<div class='booking-statuses'>
+   <p class='shadow booking-status-item'>Pending (<%= @mbpending.size %>)</p>
+   <p class='shadow booking-status-item' style='margin-left: 0.3rem'>Approved (<%= @mbpending.size %>)</p>
+   <p class='shadow booking-status-item' style='margin-left: 0.3rem'>Cancelled (<%= @mbpending.size %>)</p>
+</div>
+<div class="cards">
+   <% @mbpending.each do |b| %>
+   <a href='/bookings/<%=b.id%>'>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path b.listing.photo.key, height: 300, crop: :fill %>')">
+         <%= b.listing.name %>
+         <div class='card-tag-bottom'><%= b.start_date%></div>
+         <div class='booking-host'>Renter: <%= b.listing.user.email%></div>
+         <div class='booking-status'><%= b.status%></div>
+      </div>
+   </a>
+   <% end %>
+   <% if @mbpending.size == 0 && @current_user = @user %>
+   <p>None to show at the moment! As soon as you receive a booking it will be ready for you to process.</p>
+   <%end%>
+</div>
+</div>
+<%end%>
