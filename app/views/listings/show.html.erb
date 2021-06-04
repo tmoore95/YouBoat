@@ -28,6 +28,12 @@
    color: #177FFC !important;
   }
 
+  #map-card {
+    width: 90% !important;
+    padding: 0 !important;
+    margin: 24px !important;
+  }
+
 </style>
 
 <div class="show-box">
@@ -93,12 +99,12 @@
     </div>
   <%# </div> %>
 
-  <%# <div class="container"> %>
-    <div class="map-padding shadow-lg" id="map"
-      style="width: 100%; height: 700px;"
+  <div class="listing-card shadow", id="map-card">
+    <div id="map"
+      style="height: 100%"
       data-markers="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  <%# </div> %>
+  </div>
 
 </div>
