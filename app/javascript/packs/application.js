@@ -24,6 +24,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initFlatpickr } from "../plugins/flatpickr";
+import { initStarRating } from '../plugins/init_star_rating';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,6 +36,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initStarRating();
+  initFlatpickr();
 });
 
-import { initStarRating } from '../plugins/init_star_rating';
