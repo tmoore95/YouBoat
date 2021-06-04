@@ -14,7 +14,7 @@ class Listing < ApplicationRecord
   # SEARCH STUFF
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :name, :craft_type ],
+    against: [ :name, :craft_type, :location ],
     associated_against: {
       user: [ :name ]
     },
