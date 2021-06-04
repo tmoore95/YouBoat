@@ -29,10 +29,23 @@
     margin: 24px !important;
   }
 
+  .fa-flag {
+    color: red;
+  }
+
+  .message {
+    position: relative;
+    text-align: center;
+  }
+
+  .text p {
+    margin-bottom: 0.5rem;
+  }
+
 </style>
 <div class="show-box">
   <%# <div class="container pt-3"> %>
-    <div class="shadow listing-card m-4">
+    <div class="shadow listing-card m-4" style="width: 520px">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
       <div class="text mr-2 pr-2 ml-2 pl-2 mt-2 pr-2">
         <h3><strong><%= @listing.name %></strong></h3>
@@ -47,27 +60,32 @@
         <p><strong><i class="bi bi-person-circle"></i>
  Listed by: </strong><%= @listing.user.name %></p>
         <% if current_user.id == @listing.user_id %>
-          <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
-          <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
+          <div class="buttons mt-3">
+            <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
+            <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
+          </div>
         <% else %>
           <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
         <% end %>
-        <%= link_to "Back", listings_path, class: "btn btn-secondary" %>
-        <div class="review-card mt-4 shadow p-2">
-          <% @reviews = @listing.reviews %>
-          <% @reviews.each do |r| %>
-        <div class="d-flex justify-content-between mt-2">
-          <p><strong><%= r.user.name %></strong>:</p>
-          <% number = r.rating.to_i %>
-          <p><%= "⭐" * number %></p>
-        </div>
-        <div class="comment p-2">
-          <p style="margin: 0">&nbsp;<i class="fas fa-quote-left"></i>&nbsp;&nbsp;&nbsp;<%= r.content %></p>
-        </div>
+        <% @reviews = @listing.reviews %>
+        <% if @reviews.size == 0 %>
+          <div class="message mt-4 p-2"><p><i class="fas fa-flag"></i>&nbsp;&nbsp;&nbsp;This vessel has no reviews yet!</p></div>
+        <% else %>
+          <div class="review-card mt-4 shadow p-2">
+            <% @reviews.each do |r| %>
+          <div class="d-flex justify-content-between mt-2">
+            <p><strong><%= r.user.name %></strong>:</p>
+            <% number = r.rating.to_i %>
+            <p><%= "⭐" * number %></p>
+          </div>
+          <div class="comment p-2">
+            <p style="margin: 0">&nbsp;<i class="fas fa-quote-left"></i>&nbsp;&nbsp;&nbsp;<%= r.content %></p>
+          </div>
+          <% end %>
+          </div>
         <% end %>
-        </div>
         <%# MODAL FORM %>
-          <button type="button" class="btn btn-success review-btn" data-toggle="modal" data-target="#form">
+          <button id="review-btn" type="button" class="btn btn-primary review-btn" data-toggle="modal" data-target="#form">
             Leave review
           </button>  
         <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
