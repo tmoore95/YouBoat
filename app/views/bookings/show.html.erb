@@ -37,25 +37,9 @@
     </div>
   </div>
 
-<% if @booking.status == "Pending" %>
-  <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> is pending!&nbsp</span>
+  <div style='border: 2px solid #177FFC' class="flash flash-primary alert alert-dismissible fade show" role="alert">
+    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> is <%= @booking.status.downcase %>!&nbsp&nbsp</span>
     <a data-dismiss="alert" aria-label="Close">
       <i class="fas fa-times"></i>
     </a>
   </div>
-<% elsif @booking.status == "Approved" %>
-  <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> has been approved!&nbsp</span>
-    <a data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
-  </div>
-<% else %>
-  <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-    <span><strong>Aye matey!</strong> Your booking for <%= @booking.listing.name %> has been cancelled!&nbsp</span>
-    <a data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
-  <% end %>
-</div>
