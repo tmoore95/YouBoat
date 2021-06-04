@@ -4,8 +4,8 @@
          <a href="/">
             <img src="https://svgsilh.com/svg/153812.svg" />
       </li>
-      <li class="navbar-text">
-      YouBoat
+      <li style='font-weight: 600 !important;' class="navbar-text">
+      YouBoat<span style='color: #177FFC'>.</span>
       </li>
       </a>
    </ul>
@@ -13,7 +13,7 @@
       <ul class="navbar-nav mr-auto">
          <% if current_user %>
          <li class="nav-item">
-            <%= link_to "New listing", new_listing_path, class: "nav-link" %>
+            <%= link_to "New listing", new_listing_path, class: "btn btn-primary nav-new-listing shadow-lg" %>
          </li>
          <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link" %>

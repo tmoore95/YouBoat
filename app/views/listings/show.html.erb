@@ -22,8 +22,10 @@
 
   .craft-type {
    padding: 0 !important;
-   width: 40%;
+   width: 60%;
    margin-bottom: 10px;
+   background-color: #F4F4F4 !important;
+   color: #177FFC !important;
   }
 
 </style>
@@ -33,20 +35,60 @@
   <%# <div class="container pt-3"> %>
     <div class="shadow listing-card m-4">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
-      <div class="text m-2 p-2">
+      <div class="text mr-2 pr-2 ml-2 pl-2 mt-2 pr-2">
         <h3><strong><%= @listing.name %></strong></h3>
         <h4 class='craft-type'><%= @listing.craft_type %></h4>
-        <p>Location: <%= @listing.location %></p>
-        <p>Price per day: £<%= @listing.price_per_day %></p>
+        <p><i class="bi bi-geo-alt-fill"></i><strong>
+ Location: </strong><%= @listing.location %></p>
+        <p><i class="bi bi-currency-exchange"></i><strong>
+ Price / Day:</strong> £<%= @listing.price_per_day %></p>
         <% price = @listing.price_per_day * 7 * 0.9 %>
-        <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
-        <% if @current_user.id == @listing.user_id %>
+        <p><i class="bi bi-piggy-bank-fill"></i><strong>
+ 7 Days:</strong> £<%= price.round(2) %></p>
+        <p><strong><i class="bi bi-person-circle"></i>
+ Listed by: </strong><%= @listing.user.name %></p>
+        <% if current_user.id == @listing.user_id %>
           <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
           <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
         <% else %>
           <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
         <% end %>
         <%= link_to "Back", listings_path, class: "btn btn-secondary" %>
+        <%# MODAL FORM %>
+        <div class="container">
+          <button type="button" class="btn btn-success review-btn" data-toggle="modal" data-target="#form">
+            Leave review
+          </button>  
+        </div>
+        <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header border-bottom-0">
+                <%= simple_form_for @review, url: new_review_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
+                <p><em>Rate from 1-5</em>:&nbsp;&nbsp;&nbsp;
+                <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+                <%= b.radio_button + b.label {''} %>
+                <% end %></p>
+                <%= f.input :content, label: "Comment:" %>
+                <%= f.submit class: "btn btn-primary" %>
+                <% end %>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card mt-4 shadow p-2">
+          <% @reviews = @listing.reviews %>
+          <% @reviews.each do |r| %>
+          <div class="d-flex justify-content-between">
+          <p><strong><%= r.user.name %></strong>:</p>
+          <p>Rating: <strong><%= r.rating %> stars</strong></p>
+          </div>
+          <p><%= r.content %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   <%# </div> %>
@@ -60,5 +102,3 @@
   <%# </div> %>
 
 </div>
-
-

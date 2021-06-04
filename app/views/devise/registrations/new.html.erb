@@ -1,6 +1,17 @@
-<div style='width: 33%' class='container py-5'>
+<style>
 
-<h2>Sign up</h2>
+body {
+  background-image: url('https://wallpaperaccess.com/full/1302472.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+</style>
+
+<div style='width: 33%; margin-top:4rem !important;margin-bottom:1rem !important; border-radius: 12px !important;' class='container p-3 bg-white shadow-lg'>
+
+<h2 class='mb-4'>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -28,6 +39,6 @@
 <% end %>
 
 
-<%= render "devise/shared/links" %>
+
 
 </div>
