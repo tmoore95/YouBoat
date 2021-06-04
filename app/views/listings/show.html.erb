@@ -1,25 +1,20 @@
-
 <style>
   .show-image {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
   }
-
   .show-box{
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
   }
-
   .listing-card {
     width: 600px;
     padding: 20px;
   }
-
   .map-padding {
     padding: 20px;
   }
-
   .craft-type {
    padding: 0 !important;
    width: 60%;
@@ -35,9 +30,7 @@
   }
 
 </style>
-
 <div class="show-box">
-
   <%# <div class="container pt-3"> %>
     <div class="shadow listing-card m-4">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
@@ -71,10 +64,7 @@
             <div class="modal-content">
               <div class="modal-header border-bottom-0">
                 <%= simple_form_for @review, url: new_review_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
-                <p><em>Rate from 1-5</em>:&nbsp;&nbsp;&nbsp;
-                <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
-                <%= b.radio_button + b.label {''} %>
-                <% end %></p>
+                <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience:" %>
                 <%= f.input :content, label: "Comment:" %>
                 <%= f.submit class: "btn btn-primary" %>
                 <% end %>
@@ -90,7 +80,8 @@
           <% @reviews.each do |r| %>
           <div class="d-flex justify-content-between">
           <p><strong><%= r.user.name %></strong>:</p>
-          <p>Rating: <strong><%= r.rating %> stars</strong></p>
+          <% number = r.rating.to_i %>
+          <p><%= "⭐" * number %></p>
           </div>
           <p><%= r.content %></p>
           <% end %>
