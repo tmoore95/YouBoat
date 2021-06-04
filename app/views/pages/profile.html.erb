@@ -40,7 +40,7 @@ right: 80px;
 </div>
 <% end %>
 <div class='account-details'>
-   <h1 style=' width: 500px; padding: 1rem; color: #666666; margin-bottom: 1rem; font-weight: 600; background-color: transparent;' class='profile-header'><i class="fas fa-anchor"></i> Welcome on deck, <%= @current_user.name %>.</h1>
+   <h1 style=' width: 500px; padding: 1rem; color: #666666; margin-bottom: 1rem; font-weight: 600; background-color: transparent;' class='profile-header'><i style='color: #177FFC' class="fas fa-anchor"></i> Welcome on deck, <%= @current_user.name %>.</h1>
    <div class='profile-section shadow-lg'>
       <img class="avatar-large dropdown-toggle shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://pbs.twimg.com/profile_images/1262420533213368323/SIOecIDH.jpg" />
       <div style='margin-left: 3rem; margin-bottom: 1.3rem;'>
@@ -48,7 +48,7 @@ right: 80px;
          <p><strong><i class="fas fa-at"></i> Email</strong>: <%= @current_user.email %></p>
          <p><strong><i class="bi bi-bookmark-star-fill"></i> My Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
          <p><strong><i class="fas fa-ship"></i> My Listings</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
-         <p><strong><i class="fas fa-star"></i> My Reviews</strong>: <a href="#listings-section"><%= @current_user.listings.count%></a></p>
+         <p><strong><i class="fas fa-star"></i> My Reviews</strong>: <%= @current_user.listings.count%></p>
          <p><strong><i class="fas fa-users"></i> Customer Bookings</strong>: Pending <a href="#listings-section">(<%= @mbpending.count%>)</a> / Approved <a href="#listings-section">(<%= @mbapproved.count%>)</a> / Cancelled <a href="#listings-section">(<%= @mbcancelled.count%>)</a></p>
       </div>
    </div>
