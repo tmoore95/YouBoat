@@ -47,7 +47,7 @@
         <p><strong><i class="bi bi-person-circle"></i>
  Listed by: </strong><%= @listing.user.name %></p>
         <% if current_user.id == @listing.user_id %>
-          <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
+          <%= link_to "Edit Listing", edit_listing_path(@listing), class: "btn btn-primary" %>
           <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
         <% else %>
           <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
