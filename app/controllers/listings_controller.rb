@@ -1,14 +1,27 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
-    @current_user = current_user
-    @markers = @listings.geocoded.map do |listing|
-      {
-        lat: listing.latitude,
-        lng: listing.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { listing: listing }),
-        image_url: helpers.asset_url('https://svgsilh.com/svg/153812.svg')
-      }
+    if params[:query].present?
+      @listings = Listing.global_search(params[:query])
+      @current_user = current_user
+      @markers = @listings.geocoded.map do |listing|
+        {
+          lat: listing.latitude,
+          lng: listing.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { listing: listing }),
+          image_url: helpers.asset_url('https://svgsilh.com/svg/153812.svg')
+        }
+      end
+    else
+      @listings = Listing.all
+      @current_user = current_user
+      @markers = @listings.geocoded.map do |listing|
+        {
+          lat: listing.latitude,
+          lng: listing.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { listing: listing }),
+          image_url: helpers.asset_url('https://svgsilh.com/svg/153812.svg')
+        }
+      end
     end
   end
 
@@ -19,6 +32,7 @@ class ListingsController < ApplicationController
     @marker = [{
       lat: @listing.latitude,
       lng: @listing.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { listing: @listing }),
       image_url: helpers.asset_url('https://svgsilh.com/svg/153812.svg')
     }]
   end

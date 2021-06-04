@@ -3,10 +3,12 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "jquery-bar-rating/dist/themes/css-stars";
 
 // Your CSS partials
 @import "components/index";
@@ -75,6 +77,10 @@ h6 {
   user-select: none;
 }
 
+.search-input {
+  margin: 16px 0 8px;
+}
+
 body {
   padding-top: 40px;
 }
@@ -90,6 +96,14 @@ body {
   bottom: 200px;
 }
 
+#search-button {
+  margin: 16px 4px 8px !important;
+}
+
+#search-bar {
+  width: 32%;
+}
+
 .card-booking-info {
   p {
     margin-bottom: 7px;
@@ -102,3 +116,4 @@ body {
   right: 10px;
   font-size: 15px;
 }
+
