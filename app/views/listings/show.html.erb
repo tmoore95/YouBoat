@@ -1,51 +1,44 @@
-
 <style>
   .show-image {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
   }
-
   .show-box{
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
   }
-
   .listing-card {
     width: 600px;
     padding: 20px;
   }
-
   .map-padding {
     padding: 20px;
   }
-
   .craft-type {
    padding: 0 !important;
-   width: 40%;
+   width: 60%;
    margin-bottom: 10px;
+   background-color: #F4F4F4 !important;
+   color: #177FFC !important;
   }
-
-  #map-card {
-    width: 90% !important;
-    padding: 0 !important;
-    margin: 24px !important;
-  }
-
 </style>
-
 <div class="show-box">
-
   <%# <div class="container pt-3"> %>
     <div class="shadow listing-card m-4">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
-      <div class="text m-2 p-2">
+      <div class="text mr-2 pr-2 ml-2 pl-2 mt-2 pr-2">
         <h3><strong><%= @listing.name %></strong></h3>
         <h4 class='craft-type'><%= @listing.craft_type %></h4>
-        <p>Location: <%= @listing.location %></p>
-        <p>Price per day: £<%= @listing.price_per_day %></p>
+        <p><i class="bi bi-geo-alt-fill"></i><strong>
+ Location: </strong><%= @listing.location %></p>
+        <p><i class="bi bi-currency-exchange"></i><strong>
+ Price / Day:</strong> £<%= @listing.price_per_day %></p>
         <% price = @listing.price_per_day * 7 * 0.9 %>
-        <p><em>Seven day discount:</em> £<%= price.round(2) %></p>
+        <p><i class="bi bi-piggy-bank-fill"></i><strong>
+ 7 Days:</strong> £<%= price.round(2) %></p>
+        <p><strong><i class="bi bi-person-circle"></i>
+ Listed by: </strong><%= @listing.user.name %></p>
         <% if current_user.id == @listing.user_id %>
           <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
           <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
