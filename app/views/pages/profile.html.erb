@@ -66,7 +66,7 @@ right: 80px;
             <%= b.listing.name %>
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
- Hosted by: <%= b.listing.user.email%></div>
+ Host / <%= b.listing.user.name%></div>
             <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
          </div>
@@ -114,7 +114,7 @@ right: 80px;
             <%= b.listing.name %>
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
- Customer: <%= b.user.email%></div>
+  Customer / <%= b.user.name%></div>
             <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
             <%= button_to 'ACCEPT', {:controller => "pages", :action => "booking_approve", :booking_id => b.id },  :method=>:post  %>
@@ -127,7 +127,7 @@ right: 80px;
             <%= b.listing.name %>
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
- Customer: <%= b.user.email%></div>
+  Customer / <%= b.user.name%></div>
             <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
          </div>
@@ -139,7 +139,7 @@ right: 80px;
             <%= b.listing.name %>
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
- Customer: <%= b.user.email%></div>
+ Customer / <%= b.user.name%></div>
             <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
          </div>
