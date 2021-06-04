@@ -34,13 +34,18 @@
   }
 
   .message {
+    position: relative;
     text-align: center;
+  }
+
+  .text p {
+    margin-bottom: 0.5rem;
   }
 
 </style>
 <div class="show-box">
   <%# <div class="container pt-3"> %>
-    <div class="shadow listing-card m-4">
+    <div class="shadow listing-card m-4" style="width: 520px">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
       <div class="text mr-2 pr-2 ml-2 pl-2 mt-2 pr-2">
         <h3><strong><%= @listing.name %></strong></h3>
@@ -55,8 +60,10 @@
         <p><strong><i class="bi bi-person-circle"></i>
  Listed by: </strong><%= @listing.user.name %></p>
         <% if current_user.id == @listing.user_id %>
-          <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
-          <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
+          <div class="buttons mt-3">
+            <%= link_to "Edit Booking", edit_listing_path(@listing), class: "btn btn-primary" %>
+            <%= link_to "Delete Listing", listing_path(@listing), method: :delete, class: "btn btn-danger" %>
+          </div>
         <% else %>
           <%= link_to "Book now", new_listing_booking_path(@listing), class: "btn btn-primary" %>
         <% end %>
