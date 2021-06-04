@@ -75,6 +75,10 @@ h6 {
   user-select: none;
 }
 
+.search-input {
+  margin: 16px 0 8px;
+}
+
 body {
   padding-top: 40px;
 }
@@ -90,6 +94,13 @@ body {
   bottom: 200px;
 }
 
+#search-button {
+  margin: 16px 4px 8px !important;
+}
+
+#search-bar {
+  width: 32%;
+
 .card-booking-info {
   p {
     margin-bottom: 7px;
@@ -101,4 +112,5 @@ body {
   bottom: 10px;
   right: 10px;
   font-size: 15px;
+
 }

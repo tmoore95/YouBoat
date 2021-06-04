@@ -12,7 +12,7 @@
   }
 
   .listing-card {
-    width: 400px;
+    width: 600px;
     padding: 20px;
   }
 
@@ -33,7 +33,7 @@
 <div class="show-box">
 
   <%# <div class="container pt-3"> %>
-    <div class="shadow listing-card">
+    <div class="shadow listing-card m-4">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
       <div class="text mr-2 pr-2 ml-2 pl-2 mt-2 pr-2">
         <h3><strong><%= @listing.name %></strong></h3>
