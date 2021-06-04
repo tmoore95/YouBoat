@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
     redirect_to listing_path(@listing)
     else
-      render "listings/new"
+      render "listings/show"
     end
   end
 
