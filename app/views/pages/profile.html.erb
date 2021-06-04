@@ -1,8 +1,5 @@
 <style>
 input {
-  position: relative;
-  bottom: 6rem;
-  left: 4.8rem;
   border: none;
   border-radius: 12px;
   transparency: 0.8;
@@ -11,23 +8,42 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin-left: 3px;
 }
+
+input:hover {
+ opacity: 0.8;
+}
   
   input:nth-of-type(1) {
 background-color: #32965D !important;
 color: white;
+position: absolute;
+top: 13px;
+right: 10px;
   }
   input:nth-of-type(2) {
 background-color: #AF1B3F !important;
 color: white;
+position: absolute;
+top: 13px;
+right: 80px;
   }
 </style>
 
 <% if @current_user == @user %>
+<%if @mbpending[0] %>
+<div class="alert alert-primary shadow-lg" role="alert">
+  <i class="fas fa-plus-circle"></i>
+ You have a pending <a href="#customer-bookings-section">booking</a> from <strong><%= @mbpending[0].user.name %></strong> that you need to process &nbsp
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
 <div class='account-details'>
    <h1 style=' width: 500px; padding: 1rem; color: #666666; margin-bottom: 1rem; font-weight: 600; background-color: transparent;' class='profile-header'><i class="fas fa-anchor"></i> Welcome on deck, <%= @current_user.name %>.</h1>
    <div class='profile-section shadow-lg'>
       <img class="avatar-large dropdown-toggle shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://pbs.twimg.com/profile_images/1262420533213368323/SIOecIDH.jpg" />
-      <div style='margin-left: 3rem;'>
+      <div style='margin-left: 3rem; margin-bottom: 1.3rem;'>
          <div class='online-badge shadow'><i class="far fa-check-circle"></i></div>
          <p><strong><i class="fas fa-at"></i> Email</strong>: <%= @current_user.email %></p>
          <p><strong><i class="bi bi-bookmark-star-fill"></i> My Bookings</strong>: <a href="#bookings-section"><%= @current_user.bookings.count%></a></p>
@@ -51,7 +67,7 @@ color: white;
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
  Hosted by: <%= b.listing.user.email%></div>
-            <div class='booking-status'><i class="bi bi-bell-fill"></i>
+            <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
          </div>
       </a>
@@ -75,6 +91,7 @@ color: white;
             <div class='card-tag-bottom'>£<%= l.price_per_day%> / Day</div>
             <div class='location'><i class="bi bi-geo-alt-fill"></i>
  <%= l.location%></div>
+            <div class='booking-number'><%= l.bookings.count %> Booking<%= l.bookings.count > 1 || l.bookings.count == 0  ? "s" : ""%> </div>
          </div>
       </a>
       <% end %>
@@ -84,7 +101,7 @@ color: white;
    </div>
 </div>
 <%if @current_user == @user %>
-<div id='bookings-section' class='bookings shadow-lg'>
+<div id='customer-bookings-section' class='bookings shadow-lg'>
    <h1 style='margin-bottom: 20px' class='profile-header'><i class="bi bi-people-fill"> </i>CUSTOMER BOOKINGS (<%=@totalcustomer%>)</h1>
    <div class='booking-statuses'>
       <p class='shadow booking-status-item'>Pending (<%= @mbpending.size %>)</p>
@@ -98,7 +115,7 @@ color: white;
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
  Customer: <%= b.user.email%></div>
-            <div class='booking-status pending-tag'><i class="bi bi-bell-fill"></i>
+            <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
             <%= button_to 'ACCEPT', {:controller => "pages", :action => "booking_approve", :booking_id => b.id },  :method=>:post  %>
             <%= button_to 'DECLINE', {:controller => "pages", :action => "booking_decline", :booking_id => b.id },  :method=>:patch  %>
@@ -111,7 +128,7 @@ color: white;
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
  Customer: <%= b.user.email%></div>
-            <div class='booking-status approved-tag'><i class="bi bi-bell-fill"></i>
+            <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
          </div>
       </a>
@@ -123,7 +140,7 @@ color: white;
             <div class='card-tag-bottom'><i class="fas fa-calendar-day"></i> <%= b.start_date%></div>
             <div class='booking-host'><i class="bi bi-person-circle"></i>
  Customer: <%= b.user.email%></div>
-            <div class='booking-status cancelled-tag'><i class="bi bi-bell-fill"></i>
+            <div class='my-booking-status'><i class="bi bi-bell-fill"></i>
  <%= b.status%></div>
          </div>
       </a>

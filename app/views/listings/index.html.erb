@@ -10,6 +10,7 @@
          <%= l.name %>
          <div class='card-tag-bottom'>£<%= l.price_per_day%> / Day</div>
          <div class='location'><i class="bi bi-geo-alt-fill"></i> <%= l.location%></div>
+         <div class='listing-card-status'><i style='color: rgba(56, 140, 250, 1);' class="bi bi-person-circle"></i> <%= l.user.name%></div>
       </div>
       </a>
       <% end %>
