@@ -42,7 +42,7 @@ password: "secret"
 puts "created users"
 
 list1 = Listing.new(
-  name: "The trusty #{Faker::Name.middle_name}",
+  name: "The Trusty #{Faker::Name.middle_name}",
   location: "South Dock, Rotherhithe, London",
   craft_type: 'Hover',
   price_per_day: (250..400).to_a.sample,
@@ -56,7 +56,7 @@ list2 = Listing.new(
   name: "The #{Faker::Name.middle_name}",
   location: "Poole Harbour, Poole",
   craft_type: 'Frigate',
-  price_per_day: (900..1200).to_a.sample,
+  price_per_day: (400..600).to_a.sample,
   user: user
 )
 file2 = URI.open('https://res.cloudinary.com/dqxvijnu9/image/upload/v1622555824/boat2.jpg')
@@ -64,7 +64,7 @@ list2.photo.attach(io: file2, filename: 'boat2.jpg', content_type: 'jpg')
 list2.save!
 
 list3 = Listing.new(
-  name: "The roving #{Faker::Name.middle_name}",
+  name: "The Roving #{Faker::Name.middle_name}",
   location: "Port of Dover, Dover",
   craft_type: 'Super Yacht',
   price_per_day: (300..450).to_a.sample,
@@ -75,7 +75,7 @@ list3.photo.attach(io: file3, filename: 'boat3.jpg', content_type: 'jpg')
 list3.save!
 
 list4 = Listing.new(
-  name: "The proud #{Faker::Name.middle_name}",
+  name: "The Proud #{Faker::Name.middle_name}",
   location: "Port of Calais, Calais",
   craft_type: 'Cruise Liner',
   price_per_day: (900..1100).to_a.sample,
@@ -97,7 +97,7 @@ list5.photo.attach(io: file5, filename: 'boat5.jpg', content_type: 'jpg')
 list5.save!
 
 list6 = Listing.new(
-  name: "The cumbersome #{Faker::Name.middle_name}",
+  name: "The Cumbersome #{Faker::Name.middle_name}",
   location: "Great Yarmouth",
   craft_type: 'Log',
   price_per_day: (1..3).to_a.sample,
@@ -108,7 +108,7 @@ list6.photo.attach(io: file6, filename: 'boat6.jpg', content_type: 'jpg')
 list6.save!
 
 list7 = Listing.new(
-  name: "The mighty #{Faker::Name.middle_name}",
+  name: "The Mighty #{Faker::Name.middle_name}",
   location: "Chichester",
   craft_type: 'Row Boat',
   price_per_day: (7..15).to_a.sample,
@@ -163,7 +163,7 @@ list11.photo.attach(io: file11, filename: 'boat11.jpg', content_type: 'jpg')
 list11.save!
 
 list12 = Listing.new(
-  name: "My fair #{Faker::Name.middle_name}",
+  name: "My Fair #{Faker::Name.middle_name}",
   location: "Gran Canaria",
   craft_type: 'Yacht',
   price_per_day: (500..600).to_a.sample,
