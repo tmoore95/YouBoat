@@ -58,7 +58,7 @@
             <div class="modal-content">
               <div class="modal-header border-bottom-0">
                 <%= simple_form_for @review, url: new_review_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
-                <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+                <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience:" %>
                 <%= f.input :content, label: "Comment:" %>
                 <%= f.submit class: "btn btn-primary" %>
                 <% end %>
