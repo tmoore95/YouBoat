@@ -35,7 +35,7 @@
   <%# <div class="container pt-3"> %>
     <div class="shadow listing-card">
       <%= cl_image_tag @listing.photo.key, height: 230, width: 360, class: "show-image" %>
-      <div class="text m-2 p-2">
+      <div class="text mr-2 pr-2 ml-2 pl-2 mt-2 pr-2">
         <h3><strong><%= @listing.name %></strong></h3>
         <h4 class='craft-type'><%= @listing.craft_type %></h4>
         <p><i class="bi bi-geo-alt-fill"></i><strong>
@@ -65,11 +65,11 @@
             <div class="modal-content">
               <div class="modal-header border-bottom-0">
                 <%= simple_form_for @review, url: new_review_path, html: { class: "col-md-6 offset-md-3" } do |f| %>
-                <p>Rate from 1-5:</p>
+                <p><em>Rate from 1-5</em>:&nbsp;&nbsp;&nbsp;
                 <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
                 <%= b.radio_button + b.label {''} %>
-                <% end %>
-                <%= f.input :content, label: "Review:" %>
+                <% end %></p>
+                <%= f.input :content, label: "Comment:" %>
                 <%= f.submit class: "btn btn-primary" %>
                 <% end %>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -79,11 +79,13 @@
             </div>
           </div>
         </div>
-        <div class="reviews pt-4">
+        <div class="review-card mt-4 shadow p-2">
           <% @reviews = @listing.reviews %>
           <% @reviews.each do |r| %>
-          <p><%= r.user.email %>:</p>
-          <p>Rating: <%= r.rating %> stars</p>
+          <div class="d-flex justify-content-between">
+          <p><strong><%= r.user.name %></strong>:</p>
+          <p>Rating: <strong><%= r.rating %> stars</strong></p>
+          </div>
           <p><%= r.content %></p>
           <% end %>
         </div>
